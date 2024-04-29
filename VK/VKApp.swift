@@ -23,16 +23,8 @@ struct VKApp: App {
 
     var body: some Scene {
         WindowGroup {
-            //
-            // UIKit:
-            //
 //             VK.TabView()
-            //
-            //
-            // SwiftUI:
-            //
              ContentView()
-            //
         }
         .environment(\.chatsReducer, chatsReducer)
         .environmentObject(appState)
