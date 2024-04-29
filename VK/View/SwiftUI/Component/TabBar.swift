@@ -2,6 +2,7 @@ import SwiftUI
 
 struct TabBar<Content: View>: View {
     @EnvironmentObject private var appState: AppState
+    @Environment(\.device) var device: Device
 
     @Binding var selectedTab: Page
     private let content: Content
@@ -57,10 +58,14 @@ struct TabBar<Content: View>: View {
                             VStack(spacing: 0) {
                                 Image("chats_gray")
                                     .renderingMode(.template)
-                                    .foregroundStyle(selectedTab == .chats ? Color(hex: 0x2975CC) : Color(hex: 0x99A2AD))
+                                    .foregroundStyle(
+                                        selectedTab == .chats ? Color(hex: 0x2975CC) : Color(hex: 0x99A2AD)
+                                    )
                                 Text("Чаты")
                                     .font(.system(size: 10))
-                                    .foregroundStyle(selectedTab == .chats ? Color(hex: 0x2975CC) : Color(hex: 0x99A2AD))
+                                    .foregroundStyle(
+                                        selectedTab == .chats ? Color(hex: 0x2975CC) : Color(hex: 0x99A2AD)
+                                    )
                                     .padding(.top, 2)
                             }
                             .padding(.top, 4)
@@ -85,7 +90,7 @@ struct TabBar<Content: View>: View {
                 }
             }
         }
-        .safeAreaPadding(.bottom, UIDevice().hasDynamicIsland ? 20 : 0)
+        .safeAreaPadding(.bottom, device.hasDynamicIsland ? 20 : 0)
         .ignoresSafeArea(.all, edges: .bottom)
     }
 }

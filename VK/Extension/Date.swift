@@ -2,7 +2,11 @@ import Foundation
 
 extension Date {
     var short: String {
-        let interval = Calendar.current.dateComponents([.year, .month, .weekOfYear, .day, .hour, .minute], from: self, to: Date())
+        let interval = Calendar.current.dateComponents(
+            [.year, .month, .weekOfYear, .day, .hour, .minute],
+            from: self,
+            to: Date()
+        )
         let formatter = DateFormatter()
         formatter.dateFormat = "dd.MM.yyyy"
 

@@ -1,6 +1,12 @@
 struct MessagesKeyboard: Codable {
-    let author_id: Int?
+    let authorId: Int?
 //    let buttons: MessagesKeyboardButton[][]
-    let one_time: Bool
+    let oneTime: Bool
     let inline: Bool?
+
+    enum CodingKeys: String, CodingKey, Codable {
+        case authorId = "author_id"
+        case oneTime = "one_time"
+        case inline = "inline"
+    }
 }

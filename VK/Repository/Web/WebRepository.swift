@@ -27,11 +27,3 @@ struct VKWebRepository: WebRepository {
         .eraseToAnyPublisher()
     }
 }
-
-//struct StubWebRepository: WebRepository {
-//    func getConversations(offset: UInt) -> AnyPublisher<MessagesConversationsResponse, NetworkRequestError> {
-//        Just(MessagesConversationsResponse(from: .))
-//            .setFailureType(to: NetworkRequestError.self)
-//            .eraseToAnyPublisher()
-//    }
-//}

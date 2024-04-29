@@ -141,7 +141,6 @@
 		B74BB35D2BDDB7DF0089E6C9 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B7F679CC2BD3D982009EF7E1 /* Device.swift */,
 				B7502F9F2BB4B418005416A4 /* Color.swift */,
 				B74BB3562BDD72450089E6C9 /* Int.swift */,
 				B7F679D42BD5326D009EF7E1 /* URL.swift */,
@@ -280,6 +279,7 @@
 		B7502F9E2BB4B406005416A4 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				B7F679CC2BD3D982009EF7E1 /* Device.swift */,
 				B7502FA32BB4B41F005416A4 /* CancelBag.swift */,
 				B7502FA12BB4B41B005416A4 /* Log.swift */,
 			);
@@ -352,6 +352,7 @@
 				B7502F4E2BB4B1BF005416A4 /* Sources */,
 				B7502F4F2BB4B1BF005416A4 /* Frameworks */,
 				B7502F502BB4B1BF005416A4 /* Resources */,
+				B7B592C42BDFA0C90067B168 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -406,6 +407,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B7B592C42BDFA0C90067B168 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]; then\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif which swiftlint >/dev/null; then\n  swiftlint --strict --config ./.swiftlint.yml\nelse\n  echo \"error: SwiftLint does not exist\"\n  exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B7502F4E2BB4B1BF005416A4 /* Sources */ = {
@@ -500,7 +521,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -561,7 +582,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;

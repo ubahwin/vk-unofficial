@@ -5,12 +5,13 @@ struct VKApp: App {
     private let appState: AppState
     private var chatsReducer: ChatsReducer
     private var coordinator: Coordinator
+    private let device = Device()
 
     init() {
         let appState = AppState()
 
         let chatsReducer = ChatsReducer(
-            appState: appState, 
+            appState: appState,
             webRepository: VKWebRepository()
         )
 
@@ -29,5 +30,6 @@ struct VKApp: App {
         .environment(\.chatsReducer, chatsReducer)
         .environmentObject(appState)
         .environmentObject(coordinator)
+        .environment(\.device, device)
     }
 }

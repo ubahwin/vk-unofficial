@@ -1,8 +1,11 @@
 import UIKit
+import SwiftUI
 
-extension UIDevice {
+struct Device {
+    private let device = UIDevice.current
+
     var hasDynamicIsland: Bool {
-        guard userInterfaceIdiom == .phone else {
+        guard device.userInterfaceIdiom == .phone else {
             return false
         }
 

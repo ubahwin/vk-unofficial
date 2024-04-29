@@ -21,10 +21,8 @@ struct ChatsReducer: IChatsReducer {
     func loadChats() {
         webRepository.getConversations(offset: appState.chatsOffset)
             .map { response in
-                if 
-                    let chatsTotalCount = response.count,
-                    let unreadCountChats = response.unreadCount
-                {
+                if let chatsTotalCount = response.count,
+                   let unreadCountChats = response.unreadCount {
                     appState.chatsTotalCount = chatsTotalCount
                     appState.unreadCountChats = unreadCountChats
                 }

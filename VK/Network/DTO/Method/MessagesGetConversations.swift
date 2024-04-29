@@ -26,7 +26,7 @@ struct MessagesConversationsResponseItems: Codable {
 
 struct MessagesConversationsParams: Encodable {
     let accessToken: String = APIConstants.vkApiToken
-    let v: String = APIConstants.vkApiVersion
+    let version: String = APIConstants.vkApiVersion
 
     let count: Int?
     let fields: String?
@@ -44,7 +44,7 @@ struct MessagesConversationsParams: Encodable {
 
     enum CodingKeys: String, CodingKey, Encodable {
         case accessToken = "access_token"
-        case v
+        case version = "v"
         case count
         case fields
         case extended

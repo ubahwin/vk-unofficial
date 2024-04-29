@@ -48,7 +48,11 @@ class Chats: UIViewController {
         return searchController
     }()
 
-    var dataArray = ["Ячейка 1", "Ячейка 2", "Ячейка 3", "Ячейка 4", "Ячейка 5", "Ячейка 1", "Ячейка 2", "Ячейка 3", "Ячейка 4", "Ячейка 5", "Ячейка 1", "Ячейка 2", "Ячейка 3", "Ячейка 4", "Ячейка 5"]
+    var dataArray = [
+        "Ячейка 1", "Ячейка 2", "Ячейка 3", "Ячейка 4", "Ячейка 5",
+        "Ячейка 1", "Ячейка 2", "Ячейка 3", "Ячейка 4", "Ячейка 5",
+        "Ячейка 1", "Ячейка 2", "Ячейка 3", "Ячейка 4", "Ячейка 5"
+    ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,8 +70,15 @@ extension Chats: UICollectionViewDataSource {
         dataArray.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! ChatCollectionCell
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        let dirtyCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+
+        guard let cell = dirtyCell as? ChatCollectionCell else {
+            fatalError("cell in collectionView is bad :(")
+        }
 
         let item = dataArray[indexPath.item]
 

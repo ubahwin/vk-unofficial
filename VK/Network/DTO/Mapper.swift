@@ -1,28 +1,12 @@
 import Foundation
 
 struct Mapper {
+    // swiftlint:disable function_body_length
     static func cleanOfMetadata(_ messagesConversationsResponse: MessagesConversationsResponse) -> [Chat] {
-        var profiles = [Int64: Profile]()
-
-        for profile in messagesConversationsResponse.profiles {
-            profiles[profile.id] = Profile(
-                id: profile.id,
-                firstName: profile.firstName,
-                lastName: profile.lastName,
-                imgURL: URL(string: profile.photo100) ?? .stubImg,
-                online: profile.online.bool
-            )
-        }
-
-        var groups = [Int64: Group]()
-
-        for group in messagesConversationsResponse.groups {
-            groups[group.id] = Group(
-                id: group.id,
-                name: group.name,
-                imgURL: URL(string: group.photo100 ?? "") ?? .stubImg
-            )
-        }
+        let (profiles, groups) = getProfilesAndGroups(
+            profilesResponse: messagesConversationsResponse.profiles,
+            groupsResponse: messagesConversationsResponse.groups
+        )
 
         var chats = [Chat]()
 
@@ -70,7 +54,7 @@ struct Mapper {
             let lastMessage = LastMessage(
                 text: item.lastMessage?.text ?? "",
                 from: lastMessageProfile ?? .stub,
-                date: Date(timeIntervalSince1970: TimeInterval(item.lastMessage?.date ?? 0)), 
+                date: Date(timeIntervalSince1970: TimeInterval(item.lastMessage?.date ?? 0)),
                 attachment: attachment
             )
 
@@ -88,6 +72,35 @@ struct Mapper {
         }
 
         return chats
+    }
+    // swiftlint:enable function_body_length
+
+    private static func getProfilesAndGroups(
+        profilesResponse: [UsersUser]?, groupsResponse: [GroupsGroup]?
+    ) -> ([Int64: Profile], [Int64: Group]) {
+        var profiles = [Int64: Profile]()
+
+        for profile in profilesResponse {
+            profiles[profile.id] = Profile(
+                id: profile.id,
+                firstName: profile.firstName,
+                lastName: profile.lastName,
+                imgURL: URL(string: profile.photo100) ?? .stubImg,
+                online: profile.online.bool
+            )
+        }
+
+        var groups = [Int64: Group]()
+
+        for group in groupsResponse {
+            groups[group.id] = Group(
+                id: group.id,
+                name: group.name,
+                imgURL: URL(string: group.photo100 ?? "") ?? .stubImg
+            )
+        }
+
+        return (profiles, groups)
     }
 }
 

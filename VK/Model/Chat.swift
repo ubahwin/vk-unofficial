@@ -22,7 +22,7 @@ struct Chat: Identifiable {
                 attachment: .wall
             ),
             noSound: true,
-            unreadCount: 3, 
+            unreadCount: 3,
             online: true,
             pinned: true
         )

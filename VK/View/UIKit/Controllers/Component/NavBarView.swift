@@ -73,22 +73,9 @@ class NavBarView: UIView {
             leftImage.heightAnchor.constraint(equalToConstant: 30),
 
             leftImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-
             titleLabel.leadingAnchor.constraint(equalTo: leftImage.trailingAnchor, constant: 10),
-
             phoneButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-
-            newChatButton.trailingAnchor.constraint(equalTo: phoneButton.leadingAnchor, constant: -10),
-
-//            leftImage.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8),
-//
-//            titleLabel.leadingAnchor.constraint(equalTo: leftImage.trailingAnchor, constant: 8),
-//
-//            phoneButton.trailingAnchor.constraint(equalTo: newChatButton.leadingAnchor, constant: 8),
-//
-//            newChatButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 8),
-
-
+            newChatButton.trailingAnchor.constraint(equalTo: phoneButton.leadingAnchor, constant: -10)
         ])
     }
 }

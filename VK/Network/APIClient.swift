@@ -92,7 +92,10 @@ struct NetworkDispatcher {
         self.urlSession = urlSession
     }
 
-    func dispatch<ReturnType: Codable>(request: URLRequest, logging: Bool) -> AnyPublisher<ReturnType, NetworkRequestError> {
+    func dispatch<ReturnType: Codable>(
+        request: URLRequest,
+        logging: Bool
+    ) -> AnyPublisher<ReturnType, NetworkRequestError> {
         print("[\(request.httpMethod?.uppercased() ?? "")] \(request.url!)")
         return urlSession
             .dataTaskPublisher(for: request)
@@ -154,7 +157,10 @@ struct NetworkDispatcher {
 struct APIClient {
     static var networkDispatcher: NetworkDispatcher = NetworkDispatcher()
 
-    static func dispatch<R: Request>(_ request: R, logging: Bool = false) -> AnyPublisher<R.ReturnType, NetworkRequestError> {
+    static func dispatch<R: Request>(
+        _ request: R,
+        logging: Bool = false
+    ) -> AnyPublisher<R.ReturnType, NetworkRequestError> {
         guard let urlRequest = request.asURLRequest(baseURL: APIConstants.vkApiBaseURL) else {
             return Fail(outputType: R.ReturnType.self, failure: NetworkRequestError.badRequest).eraseToAnyPublisher()
         }
