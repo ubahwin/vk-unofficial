@@ -2,7 +2,7 @@ import Foundation
 
 final class APIConstants {
     static let vkApiBaseURL: String = "https://api.vk.com/"
-    static let vkApiToken: String = ""
+    static let vkApiToken: String = "<token>"
     static let vkApiVersion: String = "5.199"
 }
 
