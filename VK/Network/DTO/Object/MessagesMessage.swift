@@ -34,7 +34,7 @@ struct MessagesMessage: Codable {
     let isMentionedUser: Bool?
     let isUnavailable: Bool?
     let adminAuthorId: Int64?
-    let attachments: [Attachment]?
+    let attachments: [Attachment]
 
     struct Attachment: Codable {
         let type: AttachmentType

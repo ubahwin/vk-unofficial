@@ -32,6 +32,7 @@ struct Mapper {
             var noSound: Bool?
             var lastMessageProfile: Profile?
             var online: Bool?
+            var attachment: Attachment?
 
             switch item.conversation.peer.type {
             case .chat:
@@ -62,11 +63,15 @@ struct Mapper {
                 }
             }
 
+            if let attachmentTypeStr = item.lastMessage?.attachments.first?.type.rawValue {
+                attachment = Attachment(rawValue: attachmentTypeStr)
+            }
+
             let lastMessage = LastMessage(
                 text: item.lastMessage?.text ?? "",
                 from: lastMessageProfile ?? .stub,
                 date: Date(timeIntervalSince1970: TimeInterval(item.lastMessage?.date ?? 0)), 
-                attachment: nil
+                attachment: attachment
             )
 
             let chat = Chat(
