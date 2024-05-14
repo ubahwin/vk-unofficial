@@ -2,7 +2,10 @@ import SwiftUI
 
 struct TabBar<Content: View>: View {
     @EnvironmentObject private var appState: AppState
+
+    #if canImport(UIKit)
     @Environment(\.device) var device: Device
+    #endif
 
     @Binding var selectedTab: Page
     private let content: Content
@@ -90,7 +93,9 @@ struct TabBar<Content: View>: View {
                 }
             }
         }
+        #if canImport(UIKit)
         .safeAreaPadding(.bottom, device.hasDynamicIsland ? 20 : 0)
+        #endif
         .ignoresSafeArea(.all, edges: .bottom)
     }
 }

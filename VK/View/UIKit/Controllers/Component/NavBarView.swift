@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 class NavBarView: UIView {
@@ -79,3 +80,4 @@ class NavBarView: UIView {
         ])
     }
 }
+#endif

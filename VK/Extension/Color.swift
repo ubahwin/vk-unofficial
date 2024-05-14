@@ -11,6 +11,7 @@ extension Color {
     }
 }
 
+#if canImport(UIKit)
 extension UIColor {
     public convenience init?(hex: Int) {
         guard hex <= 0xffffffff else { return nil }
@@ -23,3 +24,4 @@ extension UIColor {
         self.init(red: red, green: green, blue: blue, alpha: alpha)
     }
 }
+#endif

@@ -20,6 +20,7 @@ struct ChatsReducer: IChatsReducer {
 
     func loadChats() {
         webRepository.getConversations(offset: appState.chatsOffset)
+            // take metadata from dirty response
             .map { response in
                 if let chatsTotalCount = response.count,
                    let unreadCountChats = response.unreadCount {
@@ -29,6 +30,15 @@ struct ChatsReducer: IChatsReducer {
 
                 return Mapper.cleanOfMetadata(response)
             }
+            // take last pinned chat from cleaned chats
+            .map { chats in
+                if let index = chats.firstIndex(where: { !$0.pinned }) {
+                    appState.lastPinnedChatIndex = index - 1
+                }
+
+                return chats
+            }
+            // append chats and check for errors
             .sink { completion in
                 if case let .failure(error) = completion {
                     Log.error(error.localizedDescription)
@@ -45,14 +55,5 @@ struct ChatsReducer: IChatsReducer {
         appState.chatsOffset = 0
         appState.chats = []
         loadChats()
-    }
-
-    // MARK: Utility
-
-    static var stub: Self {
-        ChatsReducer(
-            appState: AppState(),
-            webRepository: VKWebRepository()
-        )
     }
 }

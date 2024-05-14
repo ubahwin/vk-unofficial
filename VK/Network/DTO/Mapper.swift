@@ -53,7 +53,7 @@ struct Mapper {
 
             let lastMessage = LastMessage(
                 text: item.lastMessage?.text ?? "",
-                from: lastMessageProfile ?? .stub,
+                from: lastMessageProfile ?? ._stub,
                 date: Date(timeIntervalSince1970: TimeInterval(item.lastMessage?.date ?? 0)),
                 attachment: attachment
             )
@@ -86,7 +86,7 @@ struct Mapper {
                 firstName: profile.firstName,
                 lastName: profile.lastName,
                 imgURL: URL(string: profile.photo100) ?? .stubImg,
-                online: profile.online.bool
+                online: profile.online?.bool ?? false
             )
         }
 

@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 import SwiftUI
 
@@ -21,3 +22,4 @@ struct Device {
         return window.safeAreaInsets.top >= 51
     }
 }
+#endif

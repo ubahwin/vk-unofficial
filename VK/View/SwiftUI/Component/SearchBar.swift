@@ -27,25 +27,42 @@ struct SearchBar: View {
                                     Text("Поиск")
                                         .foregroundStyle(Color(hex: 0x818C99))
                                 }
+
                                 Spacer()
+
+                                #if os(iOS)
                                 if text != "" {
-                                    Button {
-                                        withAnimation {
-                                            text = ""
-                                            isEditing = false
-                                            focus = false
+                                    Image("xmark_gray")
+                                        .padding(.trailing, 12)
+                                        .onTapGesture {
+                                            removeText()
                                         }
-                                    } label: {
-                                        Image("xmark_gray")
-                                            .padding(.trailing, 12)
-                                    }
                                 }
+                                #endif
                             }
+                        }
+
+                        #if os(macOS)
+                        .focusable(false)
+                        .textFieldStyle(PlainTextFieldStyle())
+                        #endif
+
+                        if text != "" {
+                            #if os(macOS)
+                            Image("xmark_gray")
+                                .padding(.trailing, 12)
+                                .onTapGesture {
+                                    removeText()
+                                }
+                            #endif
                         }
                 }
                 .onTapGesture {
                     withAnimation {
+                        #if os(iOS)
                         isEditing = true
+                        #endif
+
                         focus = true
                     }
                 }
@@ -66,10 +83,19 @@ struct SearchBar: View {
             }
         }
     }
+
+    private func removeText() {
+        withAnimation {
+            text = ""
+            isEditing = false
+            focus = false
+        }
+    }
 }
 
 #Preview {
     SearchBar(text: .constant("Text"))
+        .padding()
 }
 
 #Preview {

@@ -9,8 +9,16 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack(path: $coordinator.path) {
-            TabBar(selectedTab: $selectedTab) {
-                coordinator.build(page: selectedTab)
+            SwiftUI.Group {
+                #if os(iOS)
+                TabBar(selectedTab: $selectedTab) {
+                    coordinator.build(page: selectedTab)
+                }
+                #endif
+
+                #if os(macOS)
+                ChatsView()
+                #endif
             }
             .navigationDestination(for: Page.self) { page in
                 coordinator.build(page: page)
@@ -25,7 +33,7 @@ struct ContentView: View {
 #Preview {
     let appState = AppState()
     let coordinator = Coordinator()
-    let chatsReducer: ChatsReducer = .stub
+    let chatsReducer: ChatsReducer = ._stub
 
     return ContentView()
         .environment(\.chatsReducer, chatsReducer)

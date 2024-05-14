@@ -5,7 +5,7 @@ struct Group {
     var name: String
     var imgURL: URL
 
-    static var stub: Self {
+    static var _stub: Self {
         Self(
             id: 0,
             name: "stub",

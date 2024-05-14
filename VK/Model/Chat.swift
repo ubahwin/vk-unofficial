@@ -11,13 +11,13 @@ struct Chat: Identifiable {
     var online: Bool
     var pinned: Bool
 
-    static var stub: Self {
+    static var _stub: Self {
         Self(
             name: "Stub",
             imgURL: .stubImg,
             lastMessage: LastMessage(
                 text: "stub",
-                from: .stub,
+                from: ._stub,
                 date: Date(),
                 attachment: .wall
             ),
@@ -26,5 +26,11 @@ struct Chat: Identifiable {
             online: true,
             pinned: true
         )
+    }
+}
+
+extension Chat: Equatable {
+    static func == (lhs: Chat, rhs: Chat) -> Bool {
+        lhs.id == rhs.id
     }
 }

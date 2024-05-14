@@ -2,10 +2,18 @@ import Foundation
 
 extension URL {
     static var stubImg: URL {
-        URL(string: "https://picsum.photos/200")!
+        URL(string: .stubImgURL)!
     }
 
     static var stub: URL {
-        URL(string: "google.com")!
+        URL(string: .stubURL)!
     }
+}
+
+extension String {
+    static var stubImgURL: String {
+        String("https://picsum.photos/200")
+    }
+
+    static var stubURL: String { "google.com" }
 }

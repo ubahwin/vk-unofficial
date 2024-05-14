@@ -1,4 +1,6 @@
 import SwiftUI
+#if canImport(UIKit)
+import UIKit
 
 struct TabView: UIViewControllerRepresentable {
     @Environment(\.chatsReducer) var chatsReducer: ChatsReducer
@@ -38,3 +40,4 @@ class TabBarViewController: UITabBarController {
         self.setViewControllers([chats, feed], animated: false)
     }
 }
+#endif

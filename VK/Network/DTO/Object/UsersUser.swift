@@ -15,7 +15,7 @@ struct UsersUser: Codable {
     let photo50: String
     let photo100: String
 
-    let online: VKBool
+    let online: VKBool?
     let onlineMobile: VKBool?
 
     let sex: Sex?

@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 class ChatCollectionCell: UICollectionViewCell {
@@ -32,3 +33,4 @@ class ChatCollectionCell: UICollectionViewCell {
         titleLabel.text = text
     }
 }
+#endif

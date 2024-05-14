@@ -2,13 +2,12 @@ import SwiftUI
 
 struct ChatCell: View {
     let chat: Chat
+    var hovering: Bool
 
     @State private var typing = false
 
     var body: some View {
         ZStack {
-            Rectangle()
-                .fill(.clear)
             HStack {
                 AsyncImage(url: chat.imgURL) { image in
                     ZStack {
@@ -36,7 +35,6 @@ struct ChatCell: View {
                             .padding(.top, 40.5)
                         }
                     }
-
                 } placeholder: {
                     ProgressView()
                 }
@@ -45,7 +43,8 @@ struct ChatCell: View {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack {
                         Text(chat.name)
-                            .font(.system(size: 17, weight: .semibold))
+                            .lineLimit(1)
+                            .font(.system(size: 16, weight: .semibold))
                             .foregroundStyle(.black)
 
                         if chat.noSound {
@@ -68,6 +67,7 @@ struct ChatCell: View {
                             Text(chat.lastMessage.text)
                                 .foregroundStyle(Color(hex: 0x6D7885))
                             Text(chat.lastMessage.attachment?.title ?? "")
+                                .foregroundStyle(Color(hex: 0x2688EB))
                             Text("\(chat.lastMessage.date.short)")
                                 .foregroundStyle(Color(hex: 0x99A2AD))
                                 .font(.system(size: 13, weight: .regular))
@@ -91,6 +91,16 @@ struct ChatCell: View {
                         .renderingMode(.template)
                         .foregroundStyle(Color(hex: 0xAEB7C2))
                 }
+
+                if hovering {
+                    Button {
+
+                    } label: {
+                        Image("more_horizontal_24")
+                            .renderingMode(.template)
+                            .foregroundStyle(Color(hex: 0xAEB7C2))
+                    }
+                    .buttonStyle(PlainButtonStyle())                }
             }
             .padding(.horizontal)
         }
@@ -99,7 +109,7 @@ struct ChatCell: View {
 }
 
 #Preview {
-    ChatCell(chat: .stub)
+    ChatCell(chat: ._stub, hovering: true)
 }
 
 #Preview {
@@ -121,5 +131,5 @@ struct ChatCell: View {
         noSound: true,
         online: true,
         pinned: true
-    ))
+    ), hovering: true)
 }

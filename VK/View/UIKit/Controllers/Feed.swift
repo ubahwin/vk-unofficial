@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 class Feed: UIViewController {
@@ -7,3 +8,4 @@ class Feed: UIViewController {
         view.backgroundColor = .red
     }
 }
+#endif

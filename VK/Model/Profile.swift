@@ -11,7 +11,7 @@ struct Profile {
         firstName + " " + lastName.first?.description
     }
 
-    static var stub: Self {
+    static var _stub: Self {
         Self(
             id: 0,
             firstName: "stub",

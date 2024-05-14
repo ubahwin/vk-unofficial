@@ -1,3 +1,4 @@
+#if canImport(UIKit)
 import UIKit
 
 class Chats: UIViewController {
@@ -124,3 +125,4 @@ extension Chats: UICollectionViewDelegateFlowLayout {
         CGSize(width: collectionView.frame.width, height: 50)
     }
 }
+#endif

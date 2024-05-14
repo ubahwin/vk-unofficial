@@ -3,7 +3,7 @@ import Foundation
 final class APIConstants {
     static let vkApiBaseURL: String = "https://api.vk.com/"
     // swiftlint:disable line_length
-    static let vkApiToken: String = ""
+    static let vkApiToken: String = "<token>"
     // swiftlint:enable line_length
     static let vkApiVersion: String = "5.199"
 }
