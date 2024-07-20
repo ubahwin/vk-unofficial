@@ -1,5 +1,8 @@
 import Foundation
 
+// peer_id -> Int64 
+typealias Profiles = [Int64: Profile]
+
 struct Profile {
     var id: Int64
     var firstName: String
@@ -9,15 +12,5 @@ struct Profile {
 
     var short: String {
         firstName + " " + lastName.first?.description
-    }
-
-    static var _stub: Self {
-        Self(
-            id: 0,
-            firstName: "stub",
-            lastName: "stub",
-            imgURL: .stubImg,
-            online: true
-        )
     }
 }

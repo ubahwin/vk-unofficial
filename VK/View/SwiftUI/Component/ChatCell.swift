@@ -114,6 +114,7 @@ struct ChatCell: View {
 
 #Preview {
     ChatCell(chat: Chat(
+        id: 1,
         name: "test",
         imgURL: .stubImg,
         lastMessage: LastMessage(

@@ -2,6 +2,16 @@ import Combine
 
 // swiftlint:disable type_body_length function_body_length file_length
 struct StubWebRepository: WebRepository {
+    func getConversationHistory(peerID: Int64) -> AnyPublisher<[Message], NetworkRequestError> {
+        Just([
+            ._stub,
+            ._stub,
+            ._stub
+        ])
+            .setFailureType(to: NetworkRequestError.self)
+            .eraseToAnyPublisher()
+    }
+
     func getConversations(offset: UInt) -> AnyPublisher<MessagesConversationsResponse, NetworkRequestError> {
         Just(MessagesConversationsResponse(
             count: 20,
@@ -427,6 +437,12 @@ struct StubWebRepository: WebRepository {
         ))
         .setFailureType(to: NetworkRequestError.self)
         .eraseToAnyPublisher()
+    }
+
+    func getConversationMembers(peerID: Int64) -> AnyPublisher<(Profiles, Groups), NetworkRequestError> {
+        Just((Profiles(), Groups()))
+            .setFailureType(to: NetworkRequestError.self)
+            .eraseToAnyPublisher()
     }
 }
 // swiftlint:enable type_body_length function_body_length file_length

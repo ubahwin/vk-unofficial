@@ -6,7 +6,7 @@ struct ConversationView: View {
     @State private var newMessage = ""
 
     var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             ConversationHeader(
                 name: chat.name,
                 image: chat.imgURL,
@@ -16,7 +16,7 @@ struct ConversationView: View {
 
             Spacer()
 
-            Text(chat.name)
+            ChatMessagesView()
 
             Spacer()
 
@@ -27,5 +27,11 @@ struct ConversationView: View {
 }
 
 #Preview {
-    ConversationView(chat: ._stub)
+    ZStack {
+        Rectangle()
+            .fill(Color(hex: 0xebedf0))
+
+        ConversationView(chat: ._stub)
+    }
+    .preferredColorScheme(.light)
 }

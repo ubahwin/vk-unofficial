@@ -1,7 +1,7 @@
 import Foundation
 
 struct Chat: Identifiable {
-    var id = UUID()
+    var id: Int64
 
     var name: String
     var imgURL: URL
@@ -10,23 +10,6 @@ struct Chat: Identifiable {
     var unreadCount: UInt?
     var online: Bool
     var pinned: Bool
-
-    static var _stub: Self {
-        Self(
-            name: "Stub",
-            imgURL: .stubImg,
-            lastMessage: LastMessage(
-                text: "stub",
-                from: ._stub,
-                date: Date(),
-                attachment: .wall
-            ),
-            noSound: true,
-            unreadCount: 3,
-            online: true,
-            pinned: true
-        )
-    }
 }
 
 extension Chat: Equatable {

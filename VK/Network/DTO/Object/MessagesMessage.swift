@@ -34,19 +34,7 @@ struct MessagesMessage: Codable {
     let isMentionedUser: Bool?
     let isUnavailable: Bool?
     let adminAuthorId: Int64?
-    let attachments: [Attachment]
-
-    struct Attachment: Codable {
-        let type: AttachmentType
-    }
-
-    enum AttachmentType: String, Codable {
-        case photo, video, audio, doc, market
-        case marketAlbum = "market_album"
-        case wall
-        case wallReply = "wall_reply"
-        case sticker, gift
-    }
+    let attachments: [AttachmentResponse]
 
     enum CodingKeys: String, CodingKey, Codable {
         case version

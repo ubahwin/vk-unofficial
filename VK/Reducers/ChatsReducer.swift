@@ -2,6 +2,7 @@ import Combine
 
 protocol IChatsReducer {
     func loadChats()
+    func getMessages(from chat: Chat)
 }
 
 struct ChatsReducer: IChatsReducer {
@@ -20,6 +21,13 @@ struct ChatsReducer: IChatsReducer {
 
     func loadChats() {
         webRepository.getConversations(offset: appState.chatsOffset)
+
+            /*
+
+             Start responders chain
+
+            */
+
             // take metadata from dirty response
             .map { response in
                 if let chatsTotalCount = response.count,
@@ -28,8 +36,14 @@ struct ChatsReducer: IChatsReducer {
                     appState.unreadCountChats = unreadCountChats
                 }
 
-                return Mapper.cleanOfMetadata(response)
+                return response
             }
+
+            // clean
+            .map {
+                Mapper.cleanOfMetadata($0)
+            }
+
             // take last pinned chat from cleaned chats
             .map { chats in
                 if let index = chats.firstIndex(where: { !$0.pinned }) {
@@ -38,6 +52,7 @@ struct ChatsReducer: IChatsReducer {
 
                 return chats
             }
+
             // append chats and check for errors
             .sink { completion in
                 if case let .failure(error) = completion {
@@ -55,5 +70,17 @@ struct ChatsReducer: IChatsReducer {
         appState.chatsOffset = 0
         appState.chats = []
         loadChats()
+    }
+
+    func getMessages(from chat: Chat) {
+        webRepository.getConversationHistory(peerID: chat.id)
+            .sink { completion in
+                if case let .failure(error) = completion {
+                    Log.error(error.localizedDescription)
+                }
+            } receiveValue: { messages in
+                appState.curMessages = messages
+            }
+            .store(in: cancelBag)
     }
 }

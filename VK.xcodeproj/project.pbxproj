@@ -15,6 +15,8 @@
 		B701B15A2BB8ABC4002A52F7 /* MessagesGetConversations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B701B1592BB8ABC4002A52F7 /* MessagesGetConversations.swift */; };
 		B701B15C2BB8B94D002A52F7 /* MessagesKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B701B15B2BB8B94D002A52F7 /* MessagesKeyboard.swift */; };
 		B701B15E2BB8B9FD002A52F7 /* MessagesPinnedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B701B15D2BB8B9FD002A52F7 /* MessagesPinnedMessage.swift */; };
+		B703D5642BF5262100F3D8E1 /* ConversationHistoryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B703D5632BF5262100F3D8E1 /* ConversationHistoryResponse.swift */; };
+		B703D5662BF5275700F3D8E1 /* AttachmentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B703D5652BF5275700F3D8E1 /* AttachmentResponse.swift */; };
 		B70649EC2BBC33B90005056E /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B70649EB2BBC33B90005056E /* TabBar.swift */; };
 		B74733362BEF94BA00BABBCC /* ConversationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74733352BEF94BA00BABBCC /* ConversationView.swift */; };
 		B74733382BEF954700BABBCC /* MessageCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = B74733372BEF954700BABBCC /* MessageCloud.swift */; };
@@ -46,9 +48,14 @@
 		B7502FAA2BB4B611005416A4 /* ChatsReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7502FA92BB4B611005416A4 /* ChatsReducer.swift */; };
 		B7502FAC2BB4B6FA005416A4 /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7502FAB2BB4B6FA005416A4 /* FeedView.swift */; };
 		B780E41A2BDC0CA700F0993C /* ChatCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B780E4192BDC0CA700F0993C /* ChatCollectionCell.swift */; };
+		B79B8F292BFB867000B28664 /* ConversationMembersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B79B8F282BFB867000B28664 /* ConversationMembersResponse.swift */; };
 		B7B592C32BDF07C60067B168 /* Attachment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7B592C22BDF07C60067B168 /* Attachment.swift */; };
+		B7CF0C632BF8DCE500C3276E /* ConversationHistoryParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CF0C622BF8DCE500C3276E /* ConversationHistoryParams.swift */; };
+		B7CF0C652BF8DF5900C3276E /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CF0C642BF8DF5900C3276E /* Message.swift */; };
+		B7CF0C672BF910AB00C3276E /* ConversationMembersParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7CF0C662BF910AB00C3276E /* ConversationMembersParams.swift */; };
 		B7F220732BF3AB3A00B0889E /* StubWebRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F220722BF3AB3A00B0889E /* StubWebRepository.swift */; };
 		B7F220752BF3ABE500B0889E /* Stubs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F220742BF3ABE500B0889E /* Stubs.swift */; };
+		B7F220772BF3CBF600B0889E /* ChatMessagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F220762BF3CBF600B0889E /* ChatMessagesView.swift */; };
 		B7F679C92BD3D14B009EF7E1 /* Page.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F679C82BD3D14B009EF7E1 /* Page.swift */; };
 		B7F679CB2BD3D16E009EF7E1 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F679CA2BD3D16E009EF7E1 /* Coordinator.swift */; };
 		B7F679CD2BD3D982009EF7E1 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F679CC2BD3D982009EF7E1 /* Device.swift */; };
@@ -73,6 +80,8 @@
 		B701B1592BB8ABC4002A52F7 /* MessagesGetConversations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesGetConversations.swift; sourceTree = "<group>"; };
 		B701B15B2BB8B94D002A52F7 /* MessagesKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesKeyboard.swift; sourceTree = "<group>"; };
 		B701B15D2BB8B9FD002A52F7 /* MessagesPinnedMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessagesPinnedMessage.swift; sourceTree = "<group>"; };
+		B703D5632BF5262100F3D8E1 /* ConversationHistoryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationHistoryResponse.swift; sourceTree = "<group>"; };
+		B703D5652BF5275700F3D8E1 /* AttachmentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttachmentResponse.swift; sourceTree = "<group>"; };
 		B70649EB2BBC33B90005056E /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		B74733352BEF94BA00BABBCC /* ConversationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationView.swift; sourceTree = "<group>"; };
 		B74733372BEF954700BABBCC /* MessageCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCloud.swift; sourceTree = "<group>"; };
@@ -106,9 +115,14 @@
 		B7502FA92BB4B611005416A4 /* ChatsReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsReducer.swift; sourceTree = "<group>"; };
 		B7502FAB2BB4B6FA005416A4 /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		B780E4192BDC0CA700F0993C /* ChatCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCollectionCell.swift; sourceTree = "<group>"; };
+		B79B8F282BFB867000B28664 /* ConversationMembersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationMembersResponse.swift; sourceTree = "<group>"; };
 		B7B592C22BDF07C60067B168 /* Attachment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attachment.swift; sourceTree = "<group>"; };
+		B7CF0C622BF8DCE500C3276E /* ConversationHistoryParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationHistoryParams.swift; sourceTree = "<group>"; };
+		B7CF0C642BF8DF5900C3276E /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		B7CF0C662BF910AB00C3276E /* ConversationMembersParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationMembersParams.swift; sourceTree = "<group>"; };
 		B7F220722BF3AB3A00B0889E /* StubWebRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubWebRepository.swift; sourceTree = "<group>"; };
 		B7F220742BF3ABE500B0889E /* Stubs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stubs.swift; sourceTree = "<group>"; };
+		B7F220762BF3CBF600B0889E /* ChatMessagesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessagesView.swift; sourceTree = "<group>"; };
 		B7F679C82BD3D14B009EF7E1 /* Page.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Page.swift; sourceTree = "<group>"; };
 		B7F679CA2BD3D16E009EF7E1 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		B7F679CC2BD3D982009EF7E1 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
@@ -154,6 +168,8 @@
 			isa = PBXGroup;
 			children = (
 				B701B1592BB8ABC4002A52F7 /* MessagesGetConversations.swift */,
+				B7CF0C622BF8DCE500C3276E /* ConversationHistoryParams.swift */,
+				B7CF0C662BF910AB00C3276E /* ConversationMembersParams.swift */,
 			);
 			path = Method;
 			sourceTree = "<group>";
@@ -234,6 +250,9 @@
 				B7F679CE2BD4130E009EF7E1 /* UsersUser.swift */,
 				B7F679D22BD466F6009EF7E1 /* VKBool.swift */,
 				B7F679D62BD5BCD2009EF7E1 /* GroupsGroup.swift */,
+				B703D5632BF5262100F3D8E1 /* ConversationHistoryResponse.swift */,
+				B703D5652BF5275700F3D8E1 /* AttachmentResponse.swift */,
+				B79B8F282BFB867000B28664 /* ConversationMembersResponse.swift */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -268,6 +287,7 @@
 				B7F679D82BD5C4F2009EF7E1 /* Group.swift */,
 				B74BB3592BDDB70E0089E6C9 /* LastMessage.swift */,
 				B7B592C22BDF07C60067B168 /* Attachment.swift */,
+				B7CF0C642BF8DF5900C3276E /* Message.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -361,6 +381,7 @@
 				B74733352BEF94BA00BABBCC /* ConversationView.swift */,
 				B7502F572BB4B1BF005416A4 /* ContentView.swift */,
 				B7502FAB2BB4B6FA005416A4 /* FeedView.swift */,
+				B7F220762BF3CBF600B0889E /* ChatMessagesView.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -469,6 +490,7 @@
 				B7F679D72BD5BCD2009EF7E1 /* GroupsGroup.swift in Sources */,
 				B74733362BEF94BA00BABBCC /* ConversationView.swift in Sources */,
 				B7502F662BB4B2E1005416A4 /* AppState.swift in Sources */,
+				B7F220772BF3CBF600B0889E /* ChatMessagesView.swift in Sources */,
 				B74BB3572BDD72450089E6C9 /* Int.swift in Sources */,
 				B7502F8F2BB4B321005416A4 /* Mapper.swift in Sources */,
 				B701B15C2BB8B94D002A52F7 /* MessagesKeyboard.swift in Sources */,
@@ -491,14 +513,18 @@
 				B7B592C32BDF07C60067B168 /* Attachment.swift in Sources */,
 				B74BB35F2BDDB8050089E6C9 /* Date.swift in Sources */,
 				B747333A2BF02C8C00BABBCC /* MessageField.swift in Sources */,
+				B703D5642BF5262100F3D8E1 /* ConversationHistoryResponse.swift in Sources */,
 				B701B15E2BB8B9FD002A52F7 /* MessagesPinnedMessage.swift in Sources */,
 				B701B15A2BB8ABC4002A52F7 /* MessagesGetConversations.swift in Sources */,
 				B7502FA22BB4B41B005416A4 /* Log.swift in Sources */,
+				B79B8F292BFB867000B28664 /* ConversationMembersResponse.swift in Sources */,
 				B701B1572BB8AB36002A52F7 /* MessagesMessage.swift in Sources */,
 				B74733382BEF954700BABBCC /* MessageCloud.swift in Sources */,
+				B7CF0C652BF8DF5900C3276E /* Message.swift in Sources */,
 				B7F679CB2BD3D16E009EF7E1 /* Coordinator.swift in Sources */,
 				B7F679D32BD466F6009EF7E1 /* VKBool.swift in Sources */,
 				B7F679E52BD7A95C009EF7E1 /* NavBarView.swift in Sources */,
+				B703D5662BF5275700F3D8E1 /* AttachmentResponse.swift in Sources */,
 				B7F679C92BD3D14B009EF7E1 /* Page.swift in Sources */,
 				B74733402BF26C8900BABBCC /* ColorConsts.swift in Sources */,
 				B701B1472BB8084C002A52F7 /* ChatCell.swift in Sources */,
@@ -510,9 +536,11 @@
 				B7F679D52BD5326D009EF7E1 /* URL.swift in Sources */,
 				B7F679CF2BD4130E009EF7E1 /* UsersUser.swift in Sources */,
 				B7F679D92BD5C4F2009EF7E1 /* Group.swift in Sources */,
+				B7CF0C672BF910AB00C3276E /* ConversationMembersParams.swift in Sources */,
 				B701B1452BB557D6002A52F7 /* SearchBar.swift in Sources */,
 				B780E41A2BDC0CA700F0993C /* ChatCollectionCell.swift in Sources */,
 				B7502F912BB4B321005416A4 /* APIConstants.swift in Sources */,
+				B7CF0C632BF8DCE500C3276E /* ConversationHistoryParams.swift in Sources */,
 				B701B1512BB8AA50002A52F7 /* Result.swift in Sources */,
 				B701B1552BB8AB2E002A52F7 /* MessagesConversation.swift in Sources */,
 				B7502F582BB4B1BF005416A4 /* ContentView.swift in Sources */,

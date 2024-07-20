@@ -1,6 +1,6 @@
 import SwiftUI
 
-// swiftlint:disable type_body_length file_length
+// swiftlint:disable type_body_length file_length line_length
 struct ChatsView: View {
     @EnvironmentObject private var appState: AppState
     @Environment(\.chatsReducer) private var chatsReducer: ChatsReducer
@@ -9,7 +9,6 @@ struct ChatsView: View {
     @Environment(\.colors) var colors
 
     @State private var searchChats = ""
-    @State private var selectedChat: Chat?
 
     @State private var hoveringIndex = -1
 
@@ -140,14 +139,16 @@ struct ChatsView: View {
 
                                         ForEach(Array(appState.chats.enumerated()), id: \.offset) { index, chat in
                                             Button {
-                                                selectedChat = chat
+                                                appState.selectedChat = chat
 
                                                 selectedItemIndex = index
                                                 selectedItemOffset = nil
                                             } label: {
                                                 ZStack {
                                                    Rectangle()
-                                                        .fill(chat == selectedChat ? colors.selectedColor : .white)
+                                                        .fill(
+                                                            chat == appState.selectedChat ? colors.selectedColor : .white
+                                                        )
                                                     ChatCell(
                                                         chat: chat,
                                                         hovering: hoveringIndex == index
@@ -227,7 +228,7 @@ struct ChatsView: View {
                 Rectangle()
                     .fill(Color(hex: 0xebedf0))
 
-                if let chat = selectedChat {
+                if let chat = appState.selectedChat {
                     ConversationView(chat: chat)
                 } else {
                     VStack {
@@ -447,4 +448,4 @@ struct ChatsView: View {
         .environmentObject(appState)
         .preferredColorScheme(.light)
 }
-// swiftlint:enable type_body_length file_length
+// swiftlint:enable type_body_length file_length line_length

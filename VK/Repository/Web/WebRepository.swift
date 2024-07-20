@@ -3,6 +3,8 @@ import MapKit
 
 protocol WebRepository {
     func getConversations(offset: UInt) -> AnyPublisher<MessagesConversationsResponse, NetworkRequestError>
+    func getConversationHistory(peerID: Int64) -> AnyPublisher<[Message], NetworkRequestError>
+    func getConversationMembers(peerID: Int64) -> AnyPublisher<(Profiles, Groups), NetworkRequestError>
 }
 
 struct VKWebRepository: WebRepository {
@@ -23,6 +25,38 @@ struct VKWebRepository: WebRepository {
             }
 
             return response
+        } // TODO: unwrap and check for error
+        .eraseToAnyPublisher()
+    }
+
+    func getConversationHistory(peerID: Int64) -> AnyPublisher<[Message], NetworkRequestError> {
+        APIClient.dispatch(
+            APIRouter.GetHistory(queryParams: ConversationHistoryParams(
+                peerID: peerID
+            ))
+        )
+        .map {
+            guard let response = $0.response else {
+                return []
+            }
+
+            return Mapper.conversationHistoryToModel(response)
+        } // TODO: unwrap and check for error
+        .eraseToAnyPublisher()
+    }
+
+    func getConversationMembers(peerID: Int64) -> AnyPublisher<(Profiles, Groups), NetworkRequestError> {
+        APIClient.dispatch(
+            APIRouter.GetConversationMembers(queryParams: ConversationMembersParams(
+                peerID: peerID
+            ))
+        )
+        .map {
+            guard let response = $0.response else {
+                return (Profiles(), Groups())
+            }
+
+            return Mapper.conversationMembersToModel(response)
         } // TODO: unwrap and check for error
         .eraseToAnyPublisher()
     }

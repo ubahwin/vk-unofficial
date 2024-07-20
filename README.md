@@ -1,7 +1,7 @@
 # Неофициальный клиент ВКонтакте
 
 <div align="center">
-    <img src="img/logo.png" alt="AppIcon" height="100">
+  <img src="img/logo.png" alt="AppIcon" height="100">
 </div>
 
 ![](https://img.shields.io/badge/iOS-17%2B-green?logo=apple)
@@ -11,6 +11,7 @@
 
 <div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; column-gap: 24px; row-gap: 20px;">
   <img src="img/1.jpg" alt="Чаты" style="width:200px;">
+  <img src="img/2.jpg" alt="Чаты macOS">
 </div>
 
 ## Технологии и инструменты
